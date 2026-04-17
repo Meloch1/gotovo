@@ -23,6 +23,12 @@ print("TOKEN =", TOKEN)
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
+from aiogram import types, F
+
+@dp.message(F.text == "/start")
+async def start(message: types.Message):
+    await message.answer("Бот работает 🚀")
+
 async def start_bot():
     print("BOT STARTING...")
     await dp.start_polling(bot)
