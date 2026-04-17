@@ -1,43 +1,35 @@
 import os
-import threading
 import asyncio
 from flask import Flask
 from aiogram import Bot, Dispatcher
+from threading import Thread
 
-# =========================
-# 🌐 MINI APP (FLASK)
-# =========================
+# ================= MINI APP =================
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Mini App работает 🚀"
-
+    return "Mini App OK 🚀"
 
 def run_web():
     port = int(os.environ.get("PORT", 3000))
     app.run(host="0.0.0.0", port=port)
 
 
-# =========================
-# 🤖 TELEGRAM BOT
-# =========================
-TOKEN = "8764130569:AAFd981I0jKeDPWmgEU0IzsLPV1nT8yQdvc"
+# ================= BOT =================
+TOKEN = os.environ.get("8764130569:AAFd981I0jKeDPWmgEU0IzsLPV1nT8yQdvc")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-
 async def start_bot():
+    print("BOT STARTING...")
     await dp.start_polling(bot)
 
 
-# =========================
-# 🚀 START BOTH
-# =========================
+# ================= RUN =================
 if __name__ == "__main__":
-    # веб (mini app)
-    threading.Thread(target=run_web).start()
+    Thread(target=run_web).start()
 
-    # бот
+    print("WEB STARTED")
     asyncio.run(start_bot())
