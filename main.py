@@ -17,7 +17,8 @@ def run_web():
 
 
 # ================= BOT =================
-TOKEN = print("TOKEN =", 8764130569:AAFd981I0jKeDPWmgEU0IzsLPV1nT8yQdvc)
+TOKEN = "8764130569:AAFd981I0jKeDPWmgEU0IzsLPV1nT8yQdvc"
+print("TOKEN =", TOKEN)
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
