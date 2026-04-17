@@ -4,6 +4,7 @@ from flask import Flask
 from aiogram import Bot, Dispatcher
 from threading import Thread
 from flask import render_template
+app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("gotovo-production.up.railway.app")
@@ -68,3 +69,6 @@ from aiogram import types
 @dp.message(commands=["start"])
 async def start(message: types.Message):
     await message.answer("Привет 👋 бот работает!")
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
