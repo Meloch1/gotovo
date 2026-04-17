@@ -3,6 +3,10 @@ import asyncio
 from flask import Flask
 from aiogram import Bot, Dispatcher
 from threading import Thread
+from flask import render_template
+@app.route("/")
+def home():
+    return render_template("gotovo-production.up.railway.app")
 
 # ================= MINI APP =================
 app = Flask(__name__)
