@@ -34,3 +34,9 @@ if __name__ == "__main__":
 
     print("WEB STARTED")
     asyncio.run(start_bot())
+
+from aiogram import types
+
+@dp.message(commands=["start"])
+async def start(message: types.Message):
+    await message.answer("Привет 👋 бот работает!")
